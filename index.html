@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>WebSocket Chat</title>
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="stylesheet" type="text/css" href="index.css" />
+  </head>
+
+  <body>
+    <button id="btn">后台同步测试</button>
+    <script type="text/javascript">
+      /**
+       *
+       * serviceWorker应用
+       *
+       * */
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          // 注册Service Worker
+          navigator.serviceWorker
+            .register('./sw.js', { scope: '/' })
+            .then(function(registration) {
+              // registration.onupdatefound = function() {
+              //   var installingWorker = registration.installing;
+              //   installingWorker.onstatechange = function() {
+              //     switch (installingWorker.state) {
+              //       case 'installed':
+              //         if (navigator.serviceWorker.controller) {
+              //           var event = document.createEvent('Event');
+              //           event.initEvent('sw.update', true, true);
+              //           window.dispatchEvent(event);
+              //         }
+              //         break;
+              //     }
+              //   };
+              // };
+              // 注册成功
+              console.log(
+                'ServiceWorker registration successful with scope: ',
+                registration.scope
+              );
+              fetch('https://registry.npm.taobao.org/').then(function(myJson) {
+                console.log(myJson);
+              });
+              document.getElementById('btn').addEventListener(
+                'click',
+                () => {
+                  var tag = 'sample_sync';
+                  registration.sync
+                    .register(tag)
+                    .then(function() {
+                      console.log('后台同步已触发', tag);
+                      navigator.serviceWorker.controller.postMessage(
+                        JSON.stringify({
+                          type: 'bgsync',
+                          msg: 'hello'
+                        })
+                      );
+                    })
+                    .catch(function(err) {
+                      console.log('后台同步触发失败', err);
+                    });
+                },
+                false
+              );
+            })
+            .catch(function(err) {
+              // 注册失败:(
+              console.log('ServiceWorker registration failed: ', err);
+            });
+        });
+      }
+    </script>
+  </body>
+</html>
