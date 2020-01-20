@@ -1,0 +1,24 @@
+{
+  "name": "base-pwa-1",
+  "version": "1.0.0",
+  "description": "base-pwa",
+  "main": "sw.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hufei1993/base-pwa.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hufei1993/base-pwa/issues"
+  },
+  "homepage": "https://github.com/hufei1993/base-pwa#readme",
+  "devDependencies": {
+    "express": "^4.17.1"
+  }
+}
