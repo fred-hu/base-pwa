@@ -2,6 +2,8 @@
 
 一个用于学习、开发 pwa 的基础应用
 
+> 启动：`npm start`
+
 ```
 .
 ├── README.md
