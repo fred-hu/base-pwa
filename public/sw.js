@@ -19,7 +19,8 @@ this.addEventListener('install', function(event) {
         './index.css',
         './manifest.json',
         './img/android-chrome-192x192.png',
-        './img/android-chrome-512x512.png'
+        './img/android-chrome-512x512.png',
+        './index.js'
       ]);
     })
   );

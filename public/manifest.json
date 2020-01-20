@@ -1,6 +1,6 @@
 {
-  "name": "FEIFEI PWA",
-  "short_name": "PWA",
+  "name": "FEIFEI计算器",
+  "short_name": "FEIFEI计算器",
   "description": "The app that helps you understand PWA",
   "display": "standalone",
   "start_url": "/",
