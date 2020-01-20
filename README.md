@@ -20,3 +20,7 @@
 ├── server.js
 └── tree.text
 ```
+
+> 界面
+
+![interface](https://raw.githubusercontent.com/hufei1993/base-pwa/master/public/img/interface.png)
