@@ -98,6 +98,9 @@ this.addEventListener('activate', function(event) {
 });
 // 监听postMessage事件
 this.addEventListener('message', function(event) {
+  self.clients.get(event.source.id).then(function(client) {
+    client.postMessage(`Messaging using clients.get(${event.source.id})`);
+  });
   console.log('触发message事件');
   console.log('收到的message:', JSON.parse(event.data));
 });

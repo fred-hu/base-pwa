@@ -16,6 +16,9 @@
        *
        * */
       if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.addEventListener('message', function(event) {
+          console.log(event.data);
+        });
         window.addEventListener('load', function() {
           // 注册Service Worker
           navigator.serviceWorker
