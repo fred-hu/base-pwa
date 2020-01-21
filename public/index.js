@@ -19,7 +19,13 @@ for (var i = 0; i < keys.length; i++) {
         .trim();
       if (operators.indexOf(lastChar) > -1 || lastChar == '.')
         equation = equation.replace(/.$/, '');
-      if (equation) input.innerHTML = eval(equation);
+      var result = '';
+      try {
+        result = eval(equation);
+      } catch (error) {
+        result = '';
+      }
+      if (equation) input.innerHTML = result;
       decimalAdded = false;
     } else if (operators.indexOf(btnVal) > -1) {
       var lastChar = inputVal[inputVal.length - 1];
