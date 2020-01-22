@@ -16,6 +16,8 @@
 │   │   └── interface.png
 │   ├── index.css
 │   ├── index.html
+│   ├── index.js
+│   ├── index_db.js
 │   ├── manifest.json
 │   └── sw.js
 ├── server.js
