@@ -5,7 +5,8 @@
   "main": "sw.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "self-signed": "openssl req -nodes -new -x509 -keyout server.key -out server.cert"
   },
   "repository": {
     "type": "git",
